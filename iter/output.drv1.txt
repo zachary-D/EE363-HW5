@@ -1,0 +1,9 @@
+[921, -100, 11, 0, 21] {size: 5} (rep invariant check: true)
+[921, -100, 11, 0, 21, 100] {size: 6} (rep invariant check: true)
+
+
+Testing IntSet's iterator:
+921 -100 11 0 21 100 
+
+Testing foreach loop with IntSets:
+921 -100 11 0 21 100 
