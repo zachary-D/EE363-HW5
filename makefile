@@ -9,13 +9,13 @@ Q1: UtilMethodGenerics.class
 UtilMethodGenerics.class: UtilMethodGenerics.java
 	javac UtilMethodGenerics.java
 
-Q2: intset/EmptyException.class intset/IntSet.class
+Q2: iter/intset/EmptyException.class iter/intset/IntSet.class
 
-intset/EmptyException.class: iter/intset/EmptyException.java
-	javac iter/intset/EmptyException.java -d iter/intset/../../
+iter/intset/EmptyException.class: iter/intset/EmptyException.java
+	javac iter/intset/EmptyException.java
 
-intset/IntSet.class: iter/intset/IntSet.java
-	javac iter/intset/IntSet.java -d iter/intset/../../
+iter/intset/IntSet.class: iter/intset/IntSet.java
+	javac iter/intset/IntSet.java
 
 clean:
 	rm *.class -f
@@ -25,13 +25,17 @@ clean:
 
 
 execute: all drivers
-	java TestExchange
-	java TestExchange2
 
 
 drivers: Q1Exec Q2Exec
 
 Q1Exec: TestExchange.class TestExchange2.class
+	#
+	#
+	#Problem 1
+	java TestExchange
+	#
+	java TestExchange2
 
 TestExchange.class: exchange/TestExchange.java
 	javac exchange/TestExchange.java -d exchange/../
@@ -39,16 +43,20 @@ TestExchange.class: exchange/TestExchange.java
 TestExchange2.class: TestExchange2.java
 	javac TestExchange2.java
 
-Q2Exec: drv1.class iter/intset/file2.class
-	java intset/drv1
+Q2Exec: iter/intset/drv1.class iter/intset/file2.class
+	#
+	#
+	#Problem 2
+	cd iter && java intset/drv1
+	#
 	cd iter && java intset/file2
 
 
-drv1.class: iter/intset/drv1.java
-	javac iter/intset/drv1.java -d iter/../
+iter/intset/drv1.class: iter/intset/drv1.java
+	javac iter/intset/drv1.java
 
 iter/intset/file2.class: iter/intset/file2.java
-	javac iter/intset/file2.java -d iter/../
+	javac iter/intset/file2.java
 
 updateSubmission: all
 	rm submission -drf

@@ -23,7 +23,7 @@ public class file2
 			System.out.print(iter);
 			System.out.print(", ");
 		}
-		System.out.print("}");
+		System.out.println("}");
 	}
 	
 }
