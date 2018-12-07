@@ -15,7 +15,7 @@ iter/intset/EmptyException.class: iter/intset/EmptyException.java
 	javac iter/intset/EmptyException.java
 
 iter/intset/IntSet.class: iter/intset/IntSet.java
-	javac iter/intset/IntSet.java
+	javac iter/intset/IntSet.java -cp iter/
 
 clean:
 	rm *.class -f
@@ -53,12 +53,12 @@ Q2Exec: iter/intset/drv1.class iter/intset/file2.class
 
 
 iter/intset/drv1.class: iter/intset/drv1.java
-	javac iter/intset/drv1.java
+	javac iter/intset/drv1.java -cp iter/
 
 iter/intset/file2.class: iter/intset/file2.java
-	javac iter/intset/file2.java
+	javac iter/intset/file2.java -cp iter/
 
-updateSubmission: all
+updateSubmission: execute #This option requires 'execute' to make sure everything compiles correctly
 	rm submission -drf
 	mkdir -p submission
 	
@@ -71,9 +71,7 @@ updateSubmission: all
 	cp TestExchange2.java submission/
 	
 #Q2
-	cp p2README.txt submission/
-	cp iter/intset/IntSet.java submission/
-	cp file2.java submission/
+	jar --create iter/intset/IntSet.java iter/intset/file2.java p2README.txt > submission/damatozwHW5p2.jar
 
 
 

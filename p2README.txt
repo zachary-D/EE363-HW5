@@ -1,1 +1,1 @@
-Extract the jar file so that /intset/ is in the same folder as the makefile, and call 'make execute'
+Extract the jar file so that /iter/ is in the same folder as the makefile.  The iter/intset/IntSet.java from damatozwHW5p2.jar should overwrite the old one from the hw5.jar.  Call 'make execute' to compile and run both problems.  Otherwise, call 'make Q2Exec' to only compile and run problem 2. 
