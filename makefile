@@ -41,14 +41,14 @@ TestExchange2.class: TestExchange2.java
 
 Q2Exec: drv1.class iter/intset/file2.class
 	java intset/drv1
-	java intset/file2
+	cd iter && java intset/file2
 
 
 drv1.class: iter/intset/drv1.java
 	javac iter/intset/drv1.java -d iter/../
 
 iter/intset/file2.class: iter/intset/file2.java
-	javac iter/intset/file2.java -cp iter/
+	javac iter/intset/file2.java -d iter/../
 
 updateSubmission: all
 	rm submission -drf
