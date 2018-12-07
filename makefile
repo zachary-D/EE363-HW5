@@ -9,13 +9,13 @@ Q1: UtilMethodGenerics.class
 UtilMethodGenerics.class: UtilMethodGenerics.java
 	javac UtilMethodGenerics.java
 
-Q2: EmptyException.class IntSet.class
+Q2: intset/EmptyException.class intset/IntSet.class
 
-EmptyException.class: iter/intset/EmptyException.java
+intset/EmptyException.class: iter/intset/EmptyException.java
 	javac iter/intset/EmptyException.java -d iter/intset/../../
 
-IntSet.class: ntSet.java IntSet.java
-	javac IntSet.java
+intset/IntSet.class: iter/intset/IntSet.java
+	javac iter/intset/IntSet.java -d iter/intset/../../
 
 clean:
 	rm *.class -f
@@ -39,15 +39,16 @@ TestExchange.class: exchange/TestExchange.java
 TestExchange2.class: TestExchange2.java
 	javac TestExchange2.java
 
-Q2Exec: drv1.class file2.class
-	java drv1
+Q2Exec: drv1.class iter/intset/file2.class
+	java intset/drv1
+	java intset/file2
 
 
 drv1.class: iter/intset/drv1.java
 	javac iter/intset/drv1.java -d iter/../
 
-file2.class: file2.java
-	javac file2.java
+iter/intset/file2.class: iter/intset/file2.java
+	javac iter/intset/file2.java -cp iter/
 
 updateSubmission: all
 	rm submission -drf
