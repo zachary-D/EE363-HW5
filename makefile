@@ -14,15 +14,17 @@ clean:
 	rm */*.class -f
 
 
-drivers: TestExchange.class
+drivers: TestExchange.class TestExchange2.class
 
 TestExchange.class: exchange/TestExchange.java
-	javac exchange/TestExchange.java
-	mv exchange/TestExchange.class /
+	javac exchange/TestExchange.java -d exchange/../
+
+TestExchange2.class: TestExchange2.java
+	javac TestExchange2.java
 
 execute: all drivers
 	java TestExchange
-
+	java TestExchange2
 
 
 updateSubmission: all
